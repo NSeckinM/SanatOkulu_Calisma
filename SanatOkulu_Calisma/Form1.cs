@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SanatOkulu_Calisma.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace SanatOkulu_Calisma
 {
     public partial class Form1 : Form
     {
+        SanatOkuluContext db = new SanatOkuluContext();
         public Form1()
         {
             InitializeComponent();

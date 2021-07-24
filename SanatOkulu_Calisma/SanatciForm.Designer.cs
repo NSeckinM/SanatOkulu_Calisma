@@ -54,7 +54,7 @@ namespace SanatOkulu_Calisma
             // 
             this.btnEkle.Location = new System.Drawing.Point(12, 53);
             this.btnEkle.Name = "btnEkle";
-            this.btnEkle.Size = new System.Drawing.Size(352, 30);
+            this.btnEkle.Size = new System.Drawing.Size(352, 37);
             this.btnEkle.TabIndex = 2;
             this.btnEkle.Text = "EKLE";
             this.btnEkle.UseVisualStyleBackColor = true;
@@ -63,7 +63,7 @@ namespace SanatOkulu_Calisma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 428);
+            this.ClientSize = new System.Drawing.Size(618, 102);
             this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.txtAd);
             this.Controls.Add(this.label1);
