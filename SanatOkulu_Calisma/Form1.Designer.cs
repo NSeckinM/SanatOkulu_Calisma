@@ -46,8 +46,11 @@ namespace SanatOkulu_Calisma
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.tsmiSanatcilar = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboYeniSanatci)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -60,9 +63,9 @@ namespace SanatOkulu_Calisma
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtAd);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 31);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(441, 368);
+            this.groupBox1.Size = new System.Drawing.Size(441, 395);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sanat Eseri";
@@ -82,7 +85,7 @@ namespace SanatOkulu_Calisma
             // btnEkle
             // 
             this.btnEkle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEkle.Location = new System.Drawing.Point(11, 320);
+            this.btnEkle.Location = new System.Drawing.Point(11, 347);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(125, 42);
             this.btnEkle.TabIndex = 6;
@@ -150,9 +153,9 @@ namespace SanatOkulu_Calisma
             this.columnHeader2,
             this.columnHeader3});
             this.lvwEserler.HideSelection = false;
-            this.lvwEserler.Location = new System.Drawing.Point(459, 23);
+            this.lvwEserler.Location = new System.Drawing.Point(459, 42);
             this.lvwEserler.Name = "lvwEserler";
-            this.lvwEserler.Size = new System.Drawing.Size(535, 691);
+            this.lvwEserler.Size = new System.Drawing.Size(535, 595);
             this.lvwEserler.TabIndex = 1;
             this.lvwEserler.UseCompatibleStateImageBehavior = false;
             this.lvwEserler.View = System.Windows.Forms.View.Details;
@@ -172,21 +175,43 @@ namespace SanatOkulu_Calisma
             this.columnHeader3.Text = "Yıl";
             this.columnHeader3.Width = 146;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiSanatcilar});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1006, 28);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // tsmiSanatcilar
+            // 
+            this.tsmiSanatcilar.Name = "tsmiSanatcilar";
+            this.tsmiSanatcilar.Size = new System.Drawing.Size(88, 24);
+            this.tsmiSanatcilar.Text = "Sanatçılar";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 726);
+            this.ClientSize = new System.Drawing.Size(1006, 668);
             this.Controls.Add(this.lvwEserler);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Sanat Okulu";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboYeniSanatci)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -205,6 +230,8 @@ namespace SanatOkulu_Calisma
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiSanatcilar;
     }
 }
 

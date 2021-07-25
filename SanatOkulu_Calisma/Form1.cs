@@ -18,16 +18,15 @@ namespace SanatOkulu_Calisma
         {
             InitializeComponent();
             SanatcilariYukle();
-
+            EserleriListele();
+            FormuResetle();
         }
-
         private void SanatcilariYukle()
         {
             cboSanatci.DataSource = db.Sanatcilar.OrderBy(x => x.Ad).ToList();
             cboSanatci.ValueMember = "Id";
             cboSanatci.DisplayMember = "Ad";
         }
-
         private void pboYeniSanatci_Click(object sender, EventArgs e)
         {
             var frm = new SanatciForm(db);
@@ -36,7 +35,6 @@ namespace SanatOkulu_Calisma
                 SanatcilariYukle();
             }
         }
-
         private void btnEkle_Click(object sender, EventArgs e)
         {
             string ad = txtAd.Text.Trim();
@@ -45,17 +43,39 @@ namespace SanatOkulu_Calisma
                 MessageBox.Show("Lütfen Sanat Eserinin Adını Belirtiniz.");
                 return;
             }
-
             if (cboSanatci.SelectedIndex == -1)
             {
                 MessageBox.Show("Lütfen Bir Sanatcı Seçiniz.");
                 return;
             }
-
-
-
-
-
+            var eser = new Eser()
+            {
+                Ad = ad,
+                SanatciId = (int)cboSanatci.SelectedValue,
+                Yil = Convert.ToInt32(mtbYil.Text)
+            };
+            db.Eserler.Add(eser);
+            db.SaveChanges();
+            FormuResetle();
+            EserleriListele();
+        }
+        private void EserleriListele()
+        {
+            lvwEserler.Items.Clear();
+            foreach (var item in db.Eserler.OrderBy(x => x.Yil))
+            {
+                ListViewItem lvi = new ListViewItem(item.Ad);
+                lvi.SubItems.Add(item.Sanatci.Ad); // navigation prop sayesinde sanatcının içindeki ad bölümüne ulaşıp aldık
+                lvi.SubItems.Add(item.Yil.ToString());
+                lvwEserler.Items.Add(lvi);
+            }
+        }
+        private void FormuResetle()
+        {
+            txtAd.Clear();
+            txtAd.Focus();
+            cboSanatci.SelectedIndex = -1;
+            mtbYil.Clear();
         }
     }
 }
