@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SanatOkulu_Calisma.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,24 @@ namespace SanatOkulu_Calisma
 {
     public partial class SanatciForm : Form
     {
-        public SanatciForm()
+        private readonly SanatOkuluContext db;
+        public SanatciForm(SanatOkuluContext db)
         {
+            this.db = db;
             InitializeComponent();
+        }
+
+        private void btnEkle_Click(object sender, EventArgs e)
+        {
+            string ad = txtAd.Text.Trim();
+            if (ad == "")
+            {
+                MessageBox.Show("Lütfen Bir Sanatcı Adı Belirtiniz");
+                return;
+            }
+            db.Sanatcilar.Add(new Sanatci() { Ad = ad });
+            db.SaveChanges();
+            DialogResult = DialogResult.OK;
         }
     }
 }

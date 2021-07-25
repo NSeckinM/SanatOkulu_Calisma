@@ -18,7 +18,7 @@ namespace SanatOkulu_Calisma
         public string Ad { get; set; }
         public int? Yil { get; set; } //nullable olmayan alanlar doğal olarak zorunludur.
         public int SanatciId { get; set; } // asağıda navigation prop yaptıktan sonra entity bu prop u isminden anlayıp Foreing key yapıyor (Sanatcı + Id)class ismi + Id den anlıyor ama navigation prop şart.
-        //eger neyin foreing key yapılacağı yukarıdaki giri propla belirtilmezse entity kendisi bir isimle foreing key atar ve biz ona ulaşamayız.
+        //eger neyin foreing key yapılacağı yukarıdaki gibi propla belirtilmezse entity kendisi bir isimle foreing key atar ve biz ona ulaşamayız.
 
         //prop tanımladık ama adı farklı olursa forein key yapmak için üzerine [ForingnKey("Navigation propun adı")] şeklinde yapılır.
 

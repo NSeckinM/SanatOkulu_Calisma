@@ -17,6 +17,45 @@ namespace SanatOkulu_Calisma
         public Form1()
         {
             InitializeComponent();
+            SanatcilariYukle();
+
+        }
+
+        private void SanatcilariYukle()
+        {
+            cboSanatci.DataSource = db.Sanatcilar.OrderBy(x => x.Ad).ToList();
+            cboSanatci.ValueMember = "Id";
+            cboSanatci.DisplayMember = "Ad";
+        }
+
+        private void pboYeniSanatci_Click(object sender, EventArgs e)
+        {
+            var frm = new SanatciForm(db);
+            if (DialogResult.OK == frm.ShowDialog())
+            {
+                SanatcilariYukle();
+            }
+        }
+
+        private void btnEkle_Click(object sender, EventArgs e)
+        {
+            string ad = txtAd.Text.Trim();
+            if (ad == "")
+            {
+                MessageBox.Show("Lütfen Sanat Eserinin Adını Belirtiniz.");
+                return;
+            }
+
+            if (cboSanatci.SelectedIndex == -1)
+            {
+                MessageBox.Show("Lütfen Bir Sanatcı Seçiniz.");
+                return;
+            }
+
+
+
+
+
         }
     }
 }
