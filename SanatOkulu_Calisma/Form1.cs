@@ -26,15 +26,27 @@ namespace SanatOkulu_Calisma
             cboSanatci.DataSource = db.Sanatcilar.OrderBy(x => x.Ad).ToList();
             cboSanatci.ValueMember = "Id";
             cboSanatci.DisplayMember = "Ad";
+            cboSanatci.SelectedIndex = -1;
         }
         private void pboYeniSanatci_Click(object sender, EventArgs e)
         {
-            var frm = new SanatciForm(db);
-            if (DialogResult.OK == frm.ShowDialog())
-            {
-                SanatcilariYukle();
-            }
+            SanatciFormuAc();
         }
+
+        public void SanatciFormuAc()
+        {
+            var frm = new SanatciForm(db);
+            frm.SanatcilarDegisti += Frm_SanatcilarDegisti;
+            frm.ShowDialog();
+
+        }
+
+        private void Frm_SanatcilarDegisti(object sender, EventArgs e)
+        {
+            EserleriListele();
+            SanatcilariYukle();
+        }
+
         private void btnEkle_Click(object sender, EventArgs e)
         {
             string ad = txtAd.Text.Trim();
@@ -52,7 +64,7 @@ namespace SanatOkulu_Calisma
             {
                 Ad = ad,
                 SanatciId = (int)cboSanatci.SelectedValue,
-                Yil = Convert.ToInt32(mtbYil.Text)
+                Yil = mtbYil.Text == "" ? null as int? : Convert.ToInt32(mtbYil.Text)
             };
             db.Eserler.Add(eser);
             db.SaveChanges();
@@ -76,6 +88,11 @@ namespace SanatOkulu_Calisma
             txtAd.Focus();
             cboSanatci.SelectedIndex = -1;
             mtbYil.Clear();
+        }
+
+        private void tsmiSanatcilar_Click(object sender, EventArgs e)
+        {
+            SanatciFormuAc();
         }
     }
 }

@@ -191,6 +191,7 @@ namespace SanatOkulu_Calisma
             this.tsmiSanatcilar.Name = "tsmiSanatcilar";
             this.tsmiSanatcilar.Size = new System.Drawing.Size(88, 24);
             this.tsmiSanatcilar.Text = "Sanatçılar";
+            this.tsmiSanatcilar.Click += new System.EventHandler(this.tsmiSanatcilar_Click);
             // 
             // Form1
             // 
